@@ -1,22 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:keepersports/screens/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+// main method thats
+// run the RunMyApp
+  runApp(RunMyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class RunMyApp extends StatelessWidget {
+  const RunMyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // materialApp with debugbanner false
     return MaterialApp(
-      title: "Ecommerce",
+      // theme of the app
+      theme: ThemeData(primarySwatch: Colors.green),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Color.fromARGB(0, 245, 199, 49),
+      // scaffold with app
+      home: Scaffold(
+        // appbat sets the title of the app
+        appBar: AppBar(
+          title: Text('Set Backgound Image'),
+        ),
+        // Decoratedbox which takes the
+        // decoration and child property
+        body: DecoratedBox(
+          // BoxDecoration takes the image
+          decoration: BoxDecoration(
+            // Image set to background of the body
+            image: DecorationImage(
+                image: AssetImage("assets/images/splash_bg.jpg"),
+                fit: BoxFit.cover),
+          ),
+          child: Center(
+              // flutter logo that will shown
+              // above the background image
+              child: FlutterLogo(
+            size: 200,
+          )),
+        ),
       ),
-      home: SplashScreen(),
     );
   }
 }
